@@ -1,0 +1,11 @@
+{
+  "name": "memora-server",
+  "version": "1.0.0",
+  "description": "Backend API for Memora - a memories sharing app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Palak",
+  "license": "MIT"
+}
