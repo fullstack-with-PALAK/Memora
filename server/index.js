@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 import cors from 'cors';
 
 const app = express();
@@ -13,6 +14,10 @@ app.get('/', (req, res) => {
   res.send('Memora API is running');
 });
 
+// MongoDB connection
+const CONNECTION_URL = 'mongodb+srv://your-db-connection-string';
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+  .catch((error) => console.log(error.message));
